@@ -21,12 +21,11 @@ export default function Drawer({
 
       {/* Drawer */}
       <div
-        className={`fixed top-0 z-50 h-full bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${
+        className={`fixed min-w-[300px] top-0 z-50 h-full bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${
           drawerOpen
             ? "left-0 translate-x-0"
             : "-left-[999px] -translate-x-full"
-        }`}
-        style={{ width: `300px` }}>
+        }`}>
         {/* Header */}
         <div className="flex items-center gap-4 py-8 px-8">
           <span>

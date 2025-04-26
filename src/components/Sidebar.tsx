@@ -1,15 +1,10 @@
-import { useRef } from "react";
-
 import cardLogo from "../assets/card.svg";
 import { items } from "@/const/menuItems";
 
 export default function Sidebar({ width }: { width: number }) {
-  const sidebarRef = useRef<HTMLDivElement>(null);
-
   return (
     <div
       className="relative border-r border-[#E6EFF5] max-h-screen"
-      ref={sidebarRef}
       style={{
         width: `${width}px`,
         transition: "width 0.3s ease-in-out",

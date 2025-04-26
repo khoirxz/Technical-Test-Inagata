@@ -4,8 +4,11 @@ import Sidebar from "@components/Sidebar";
 import Navbar from "@components/Navbar";
 import Drawer from "@/components/Drawer";
 
-export default function Main({ children }: React.PropsWithChildren) {
-  const [width, setWidth] = useState<number>(300);
+export default function Main({
+  children,
+  title = "Dashboard",
+}: React.PropsWithChildren<{ title?: string }>) {
+  const [width, setWidth] = useState<number>(270);
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
 
   useEffect(() => {
@@ -14,7 +17,7 @@ export default function Main({ children }: React.PropsWithChildren) {
       if (window.innerWidth < 768) {
         setWidth(0);
       } else {
-        setWidth(300);
+        setWidth(width);
       }
     };
 
@@ -26,6 +29,8 @@ export default function Main({ children }: React.PropsWithChildren) {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -38,8 +43,14 @@ export default function Main({ children }: React.PropsWithChildren) {
         />
         <Sidebar width={width} />
         <div className="flex-1 flex flex-col bg-[#F5F7FA]">
-          <Navbar drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
-          <main>{children}</main>
+          <Navbar
+            title={title}
+            drawerOpen={drawerOpen}
+            setDrawerOpen={setDrawerOpen}
+          />
+          <div className="w-full flex justify-center bg-[#F5F7FA]">
+            <main className="w-full max-w-[1440px] mx-auto">{children}</main>
+          </div>
         </div>
       </div>
     </div>

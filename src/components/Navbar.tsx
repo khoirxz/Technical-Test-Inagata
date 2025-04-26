@@ -7,9 +7,11 @@ import {
 import avatarImg from "../assets/images/profile-avatar.jpg";
 
 export default function Navbar({
+  title,
   drawerOpen,
   setDrawerOpen,
 }: {
+  title: string;
   drawerOpen: boolean;
   setDrawerOpen: (open: boolean) => void;
 }) {
@@ -21,7 +23,7 @@ export default function Navbar({
         <BarMenuIcon width={22} height={22} />
       </button>
       <div>
-        <p className="text-2xl font-medium">Overview</p>
+        <p className="text-2xl font-medium">{title}</p>
       </div>
       <div className="flex items-center gap-0 md:gap-4">
         <div className="bg-[#f5f7fa] hover:bg-[#E6EFF5] hidden md:flex transition duration-200 ease-in-out px-4 py-3 rounded-full items-center gap-2">
