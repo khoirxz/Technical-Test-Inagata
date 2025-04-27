@@ -14,21 +14,21 @@ const dataCard: {
   {
     id: 1,
     title: "Personal Loan",
-    icon: "/public/icons/user.svg",
+    icon: "/icons/user.svg",
     amount: 50000,
     theme: "#E7EDFF",
   },
   {
     id: 2,
     title: "Corporate Loan",
-    icon: "/public/icons/briefcase.svg",
+    icon: "/icons/briefcase.svg",
     amount: 100000,
     theme: "#FFF5D9",
   },
   {
     id: 3,
     title: "Business Loans",
-    icon: "/public/icons/graph.svg",
+    icon: "/icons/graph.svg",
     amount: 500000,
     theme: "#FFE0EB",
   },
@@ -52,10 +52,7 @@ export default function LoansPage() {
                     style={{
                       backgroundColor: item.theme || "#E7EDFF",
                     }}>
-                    <img
-                      src={item.icon || "/public/icons/user.svg"}
-                      alt="Icon"
-                    />
+                    <img src={item.icon || "/icons/user.svg"} alt="Icon" />
                   </div>
                   <div>
                     <p className="text-[#718EBF]">{item.title}</p>
@@ -71,7 +68,7 @@ export default function LoansPage() {
                   style={{
                     backgroundColor: "#DCFAF8",
                   }}>
-                  <img src="/public/icons/support.svg" alt="Icon" />
+                  <img src="/icons/support.svg" alt="Icon" />
                 </div>
                 <div>
                   <p className="text-[#718EBF]">Custom loans</p>
