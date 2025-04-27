@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Sidebar from "@components/Sidebar";
 import Navbar from "@components/Navbar";
 import Drawer from "@/components/Drawer";
+import clsx from "clsx";
 
 export default function Main({
   children,
@@ -49,7 +50,13 @@ export default function Main({
             setDrawerOpen={setDrawerOpen}
           />
           <div className="w-full flex justify-center bg-[#F5F7FA]">
-            <main className="w-full max-w-[1440px] mx-auto">{children}</main>
+            <main
+              className={clsx(
+                "w-full max-w-[1440px] mx-auto",
+                width === 0 ? "ml-0" : "ml-[270px]"
+              )}>
+              {children}
+            </main>
           </div>
         </div>
       </div>

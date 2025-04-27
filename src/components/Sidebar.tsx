@@ -6,10 +6,9 @@ import clsx from "clsx";
 export default function Sidebar({ width }: { width: number }) {
   const { pathname } = useLocation();
 
-  console.log(pathname);
   return (
     <div
-      className="relative border-r border-[#E6EFF5] max-h-screen"
+      className="fixed top-0 left-0 z-40 bg-white h-full border-r border-[#E6EFF5] max-h-screen"
       style={{
         width: `${width}px`,
         transition: "width 0.3s ease-in-out",
@@ -38,7 +37,6 @@ const LinkItem = ({
   item: (typeof items)[number];
   current: string;
 }) => {
-  console.log(item.url === current);
   return (
     <Link
       to={item.url}
