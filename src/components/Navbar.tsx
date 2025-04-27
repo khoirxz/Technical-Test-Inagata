@@ -5,25 +5,32 @@ import {
 } from "./icons";
 
 import avatarImg from "../assets/images/profile-avatar.jpg";
+import clsx from "clsx";
 
 export default function Navbar({
+  width,
   title,
   drawerOpen,
   setDrawerOpen,
 }: {
+  width: number;
   title: string;
   drawerOpen: boolean;
   setDrawerOpen: (open: boolean) => void;
 }) {
   return (
-    <nav className="flex items-center justify-between py-4 px-8 border-b border-[#E6EFF5] bg-white shadow-xs">
+    <nav
+      className={clsx(
+        "flex items-center justify-between py-4 px-8 border-b border-[#E6EFF5] bg-white shadow-xs",
+        width === 0 ? "md:pl-0" : "md:pl-[270px]"
+      )}>
       <button
         onClick={() => setDrawerOpen(!drawerOpen)}
         className="md:hidden cursor-pointer flex items-center justify-center transition duration-200 ease-in-out">
         <BarMenuIcon width={22} height={22} />
       </button>
       <div>
-        <p className="text-2xl font-medium">{title}</p>
+        <p className="text-2xl font-medium md:px-4">{title}</p>
       </div>
       <div className="flex items-center gap-0 md:gap-4">
         <div className="bg-[#f5f7fa] hover:bg-[#E6EFF5] hidden md:flex transition duration-200 ease-in-out px-4 py-3 rounded-full items-center gap-2">

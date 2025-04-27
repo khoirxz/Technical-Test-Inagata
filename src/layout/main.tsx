@@ -45,6 +45,7 @@ export default function Main({
         <Sidebar width={width} />
         <div className="flex-1 flex flex-col bg-[#F5F7FA]">
           <Navbar
+            width={width}
             title={title}
             drawerOpen={drawerOpen}
             setDrawerOpen={setDrawerOpen}
@@ -52,10 +53,10 @@ export default function Main({
           <div className="w-full flex justify-center bg-[#F5F7FA]">
             <main
               className={clsx(
-                "w-full max-w-[1440px] mx-auto",
+                "w-full max-w-[1440px]",
                 width === 0 ? "ml-0" : "ml-[270px]"
               )}>
-              {children}
+              <div className="mx-auto">{children}</div>
             </main>
           </div>
         </div>
