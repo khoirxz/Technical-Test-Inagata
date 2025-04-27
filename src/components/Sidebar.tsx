@@ -1,7 +1,12 @@
+import { useLocation, Link } from "react-router";
 import cardLogo from "../assets/card.svg";
 import { items } from "@/const/menuItems";
+import clsx from "clsx";
 
 export default function Sidebar({ width }: { width: number }) {
+  const { pathname } = useLocation();
+
+  console.log(pathname);
   return (
     <div
       className="relative border-r border-[#E6EFF5] max-h-screen"
@@ -19,20 +24,36 @@ export default function Sidebar({ width }: { width: number }) {
 
       <div className="flex flex-col gap-2 mt-6">
         {items.map((item) => (
-          <button
-            key={item.name}
-            className={`flex items-center gap-5 w-full relative py-3 px-8 cursor-pointer hover:bg-[#2D60FF]/10 ${
-              item.active ? "text-[#2D60FF]" : "text-[#b1b1b1]"
-            }`}>
-            <span
-              className={`absolute left-0 w-1 h-full rounded-br-lg rounded-tr-lg ${
-                item.active ? "bg-[#2D60FF]" : "bg-transparent"
-              }`}></span>
-            <item.icon fill={item.active ? "#2D60FF" : "#b1b1b1"} />
-            <span className="text-lg font-medium">{item.name}</span>
-          </button>
+          <LinkItem key={item.name} item={item} current={pathname} />
         ))}
       </div>
     </div>
   );
 }
+
+const LinkItem = ({
+  item,
+  current,
+}: {
+  item: (typeof items)[number];
+  current: string;
+}) => {
+  console.log(item.url === current);
+  return (
+    <Link
+      to={item.url}
+      key={item.name}
+      className={clsx(
+        "flex items-center gap-5 w-full relative py-3 px-8 cursor-pointer hover:bg-[#2D60FF]/10",
+        current === item.url ? "text-[#2D60FF]" : "text-[#b1b1b1]"
+      )}>
+      <span
+        className={clsx(
+          "absolute left-0 w-1 h-full rounded-br-lg rounded-tr-lg",
+          current === item.url ? "bg-[#2D60FF]" : "bg-transparent"
+        )}></span>
+      <item.icon fill={current === item.url ? "#2D60FF" : "#b1b1b1"} />
+      <span className="text-lg font-medium">{item.name}</span>
+    </Link>
+  );
+};

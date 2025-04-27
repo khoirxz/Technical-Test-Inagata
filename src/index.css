@@ -11,3 +11,42 @@
 
   --color-primary: #343c6a;
 }
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  /* custom css react-date-picker */
+  .rdp-root {
+    @apply w-full;
+  }
+
+  .rdp-nav {
+    @apply w-full flex justify-between items-center mt-3;
+  }
+
+  .rdp-month {
+    @apply w-full;
+  }
+
+  .rdp-month_caption {
+    @apply w-full text-center font-semibold text-lg mb-3;
+  }
+
+  .rdp-month > table {
+    @apply w-full;
+  }
+
+  .rdp-month > table > thead > tr > th {
+    @apply font-semibold text-sm text-center w-10 h-10;
+  }
+
+  .rdp-month > table > tbody > tr > td {
+    @apply text-sm text-center w-10 h-10;
+  }
+
+  [data-selected="true"] {
+    @apply bg-[#2D60FF] text-white rounded-full;
+  }
+}
