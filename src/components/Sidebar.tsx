@@ -1,7 +1,8 @@
 import { useLocation, Link } from "react-router";
-import cardLogo from "../assets/card.svg";
-import { items } from "@/const/menuItems";
 import clsx from "clsx";
+
+import { items } from "@/const/menuItems";
+import cardLogo from "../assets/card.svg";
 
 export default function Sidebar({ width }: { width: number }) {
   const { pathname } = useLocation();
@@ -30,7 +31,7 @@ export default function Sidebar({ width }: { width: number }) {
   );
 }
 
-const LinkItem = ({
+export const LinkItem = ({
   item,
   current,
 }: {
